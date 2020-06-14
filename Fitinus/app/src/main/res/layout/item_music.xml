@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="10dp">
+
+    <ImageView
+        android:id="@+id/mlist"
+        android:src="@mipmap/mlist"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+    </ImageView>
+
+    <TextView
+        android:textSize="20dp"
+        android:gravity="center_vertical"
+        android:id="@+id/song"
+        android:text="태연 - U R"
+        android:layout_weight="5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/play"
+        android:src="@mipmap/play"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/detail"
+        android:src="@mipmap/detail"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+    </ImageView>
+
+
+
+</LinearLayout>
