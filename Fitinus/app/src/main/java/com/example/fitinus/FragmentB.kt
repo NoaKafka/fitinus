@@ -2,6 +2,7 @@ package com.example.fitinus
 
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,6 +38,9 @@ class FragmentB (var c : Context): Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        stress_bar.indeterminateDrawable.setColorFilter(Color.rgb(60,179,113), android.graphics.PorterDuff.Mode.MULTIPLY)
+
+
         timeGenerator_b()
 
         var graphData = ArrayList<BarEntry>()
@@ -67,6 +71,27 @@ class FragmentB (var c : Context): Fragment() {
             date = "0$date"
         }
         var day = instance.get(Calendar.DAY_OF_WEEK).toString()
+        if(day == "1"){
+            day = "월"
+        }
+        else if(day == "2"){
+            day = "화"
+        }
+        else if(day == "3"){
+            day = "수"
+        }
+        else if(day == "4"){
+            day = "목"
+        }
+        else if(day == "5"){
+            day = "금"
+        }
+        else if(day == "6"){
+            day = "토"
+        }
+        else{
+            day = "일"
+        }
         date_b.text = month + "월 " + date + "일 " + day
     }
 
@@ -84,8 +109,8 @@ class FragmentB (var c : Context): Fragment() {
 
     fun setChart(listData : ArrayList<BarEntry>){
 
-        val dataSet = BarDataSet(listData, getString(R.string.app_name))
-        dataSet.color = ContextCompat.getColor(c, R.color.colorPrimaryDark)
+        val dataSet = BarDataSet(listData, "Stress")
+        dataSet.color = ContextCompat.getColor(c, android.R.color.holo_green_light)
         dataSet.valueTextColor = ContextCompat.getColor(c, android.R.color.black)
 
         val lineData = BarData(dataSet)

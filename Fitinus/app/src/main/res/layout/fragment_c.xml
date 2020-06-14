@@ -14,14 +14,16 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fav_btn_c"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         app:fabSize="normal"
-        android:backgroundTint="@color/colorPrimary"
         android:elevation="6dp"
+        android:src="@mipmap/plus"
+        android:backgroundTint="@color/colorPrimary"
         />
 
 </FrameLayout>

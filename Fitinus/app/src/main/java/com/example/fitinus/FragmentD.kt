@@ -30,6 +30,7 @@ class FragmentD(var c : Context) : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+
         //data load
         var friend_data : ArrayList<friend> = ArrayList<friend>()
         friend_data.add(friend("hi","홍길동", "best"))

@@ -1,6 +1,8 @@
 package com.example.fitinus
 
 
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +11,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import android.R.drawable
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 
 
@@ -21,10 +30,17 @@ class MainActivity : AppCompatActivity() {
 
         var main_adapter = Main_pager_Adapter(supportFragmentManager)
 
+
         friend_List_VP.adapter = main_adapter
         friend_List_VP.offscreenPageLimit = 3
 
+
         tabs_main.setupWithViewPager(friend_List_VP)
+        tabs_main.getTabAt(0)?.setIcon(resources.getDrawable(R.mipmap.home))
+        tabs_main.getTabAt(1)?.setIcon(resources.getDrawable(R.mipmap.chart))
+        tabs_main.getTabAt(2)?.setIcon(resources.getDrawable(R.mipmap.music))
+        tabs_main.getTabAt(3)?.setIcon(resources.getDrawable(R.mipmap.contact))
+
         tabs_main.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
@@ -45,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         var data3 : Fragment = FragmentC(applicationContext)
         var data4 : Fragment = FragmentD(applicationContext)
 
+
         var mData : ArrayList<Fragment> = arrayListOf(data1,data2,data3,data4)
 
         constructor(fm : FragmentManager) : super(fm){
@@ -58,15 +75,5 @@ class MainActivity : AppCompatActivity() {
         override fun getCount(): Int {
             return mData.size
         }
-
-        override fun getPageTitle(position: Int): CharSequence? {
-            return when (position){
-                0 -> "A"
-                1 -> "B"
-                2 -> "C"
-                else -> {return "D"}
-            }
-        }
-
     }
 }
