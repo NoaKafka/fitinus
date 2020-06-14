@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
     inner class Main_pager_Adapter : FragmentPagerAdapter {
 
         var data1 : Fragment = FragmentA()
-        var data2 : Fragment = FragmentB()
+        var data2 : Fragment = FragmentB(applicationContext)
         var data3 : Fragment = FragmentC(applicationContext)
-        var data4 : Fragment = FragmentD()
+        var data4 : Fragment = FragmentD(applicationContext)
 
         var mData : ArrayList<Fragment> = arrayListOf(data1,data2,data3,data4)
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="10dp">
+
+    <ImageView
+        android:id="@+id/f_image"
+        android:src="@mipmap/f_image"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+    </ImageView>
+
+    <TextView
+        android:textSize="20dp"
+        android:gravity="center_vertical"
+        android:id="@+id/f_name"
+        android:text="홍길동"
+        android:layout_weight="6"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+
+    <ImageView
+        android:id="@+id/feel"
+        android:src="@mipmap/best"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:scaleType="fitCenter"
+        android:layout_height="match_parent">
+    </ImageView>
+
+
+
+</LinearLayout>

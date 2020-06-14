@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentB">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,12 +13,86 @@
         android:layout_height="match_parent">
 
         <!-- date -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:src="@mipmap/left_arrow"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/date_b"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+
+
+            <ImageView
+                android:src="@mipmap/right_arrow"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </ImageView>
+
+        </LinearLayout>
+
         <!-- Health Image -->
+        <ImageView
+            android:src="@mipmap/health_b"
+            android:scaleType="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </ImageView>
         <!-- wearing time -->
+        <TextView
+            android:gravity="center"
+            android:textSize="20dp"
+            android:id="@+id/wearing_time"
+            android:text="착용시간  :  7시간 15분"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </TextView>
         <!-- Stress Bar -->
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/stress_bar"
+            android:progress="50"
+            android:min="0"
+            android:max="100"
+            android:visibility="visible" />
+
         <!-- BP Bar -->
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/bp_bar"
+            android:min="0"
+            android:max="100"
+            android:progress="50"
+            android:visibility="visible" />
 
         <!-- Bar Graph -->
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/graph"
+            android:layout_weight="8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,10 +110,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="스트레스 빈도"></TextView>
 
                 <!-- Frequency of Stress -->
                 <TextView
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -52,5 +129,6 @@
 
 
     </LinearLayout>
+
 
 </FrameLayout>
