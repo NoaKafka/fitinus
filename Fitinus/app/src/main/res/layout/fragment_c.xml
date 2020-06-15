@@ -23,7 +23,8 @@
         app:fabSize="normal"
         android:elevation="6dp"
         android:src="@mipmap/plus"
-        android:backgroundTint="@color/colorPrimary"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/fitinus_green"
         />
 
 </FrameLayout>

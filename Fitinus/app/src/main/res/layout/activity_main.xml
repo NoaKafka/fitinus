@@ -23,8 +23,9 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabBackground="@android:color/darker_gray"
+        app:tabBackground="@color/fitinus_green"
         app:tabMode="fixed"
+        app:tabIndicatorColor="@color/fitinus_green"
         tools:layout_editor_absoluteX="0dp">
     </com.google.android.material.tabs.TabLayout>
 

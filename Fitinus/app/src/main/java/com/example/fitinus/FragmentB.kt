@@ -110,7 +110,13 @@ class FragmentB (var c : Context): Fragment() {
     fun setChart(listData : ArrayList<BarEntry>){
 
         val dataSet = BarDataSet(listData, "Stress")
-        dataSet.color = ContextCompat.getColor(c, android.R.color.holo_green_light)
+        //dataSet.color = ContextCompat.getColor(c, android.R.color.holo_green_light)
+        val color_list : ArrayList<Int> = ArrayList<Int>()
+        color_list.add(ContextCompat.getColor(c, android.R.color.holo_green_light))
+        color_list.add(ContextCompat.getColor(c, android.R.color.holo_orange_light))
+        color_list.add(ContextCompat.getColor(c, android.R.color.holo_blue_light))
+        dataSet.colors = color_list
+
         dataSet.valueTextColor = ContextCompat.getColor(c, android.R.color.black)
 
         val lineData = BarData(dataSet)

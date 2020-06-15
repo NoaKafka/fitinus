@@ -54,7 +54,8 @@
         android:layout_margin="16dp"
         app:fabSize="normal"
         android:src="@mipmap/plus"
-        android:backgroundTint="@color/colorPrimary"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/fitinus_green"
         android:elevation="6dp"
     />
 
