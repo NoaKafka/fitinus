@@ -4,6 +4,7 @@ package com.example.fitinus
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -19,18 +20,24 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    /*
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle presses on the action bar items
         when(item.itemId){
-            R.id.action_btn1 -> { return palyBtn() }
-            R.id.action_btn2 -> { return stopBtn() }
+            R.id.action_btn1 -> { return bar_button() }
             else -> {return super.onOptionsItemSelected(item)}
 
 
 
         }
-    }*/
+    }
+
+    fun bar_button() : Boolean{
+
+        Toast.makeText(applicationContext, "bar button on", Toast.LENGTH_SHORT).show()
+
+        return true
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
