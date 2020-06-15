@@ -15,34 +15,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
 
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle presses on the action bar items
-        when(item.itemId){
-            R.id.action_btn1 -> { return bar_button() }
-            else -> {return super.onOptionsItemSelected(item)}
-
-
-
-        }
-    }
-
-    fun bar_button() : Boolean{
-
-        Toast.makeText(applicationContext, "bar button on", Toast.LENGTH_SHORT).show()
-
-        return true
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.mipmap.menu_icon)
 
         var main_adapter = Main_pager_Adapter(supportFragmentManager)
 
