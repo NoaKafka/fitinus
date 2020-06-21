@@ -1,53 +1,30 @@
 package com.example.fitinus
 
-
-import android.content.Context
-import android.content.Intent
 import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_b.*
-import kotlinx.android.synthetic.main.fragment_c.*
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import kotlinx.android.synthetic.main.fragment_b.graph
 import java.util.*
 import kotlin.collections.ArrayList
 
-/**
- * A simple [Fragment] subclass.
- */
-class FragmentB (var c : Context): Fragment() {
+class Detail_Activity : AppCompatActivity() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_b, container, false)
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_detail)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        stress_bar.indeterminateDrawable.setColorFilter(Color.rgb(60,179,113), android.graphics.PorterDuff.Mode.MULTIPLY)
-
-        go_detail.setOnClickListener {
-            val intent = Intent(c, Detail_Activity::class.java)
-            startActivity(intent)
-        }
-
-
-
+        setSupportActionBar(toolbar_datail)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.mipmap.menu_icon)
+        //stress_bar.indeterminateDrawable.setColorFilter(Color.rgb(60,179,113), android.graphics.PorterDuff.Mode.MULTIPLY)
 
 
         timeGenerator_b()
@@ -67,7 +44,10 @@ class FragmentB (var c : Context): Fragment() {
 
         initLineChart()
         setChart(graphData)
+
+
     }
+
 
     fun timeGenerator_b(){
         val instance = Calendar.getInstance()
@@ -101,17 +81,17 @@ class FragmentB (var c : Context): Fragment() {
         else{
             day = "일"
         }
-        date_b.text = month + "월 " + date + "일 " + day
+        date_datail.text = month + "월 " + date + "일 " + day
     }
 
     fun initLineChart(){
 
-        val xAxis = graph.xAxis
+        val xAxis = graph_detail.xAxis
         xAxis.setDrawLabels(false)
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.granularity = 1f
 
-        val rightYAxis = graph.axisRight
+        val rightYAxis = graph_detail.axisRight
         rightYAxis.setDrawLabels(false)
 
     }
@@ -121,17 +101,17 @@ class FragmentB (var c : Context): Fragment() {
         val dataSet = BarDataSet(listData, "Stress")
         //dataSet.color = ContextCompat.getColor(c, android.R.color.holo_green_light)
         val color_list : ArrayList<Int> = ArrayList<Int>()
-        color_list.add(ContextCompat.getColor(c, android.R.color.holo_green_light))
-        color_list.add(ContextCompat.getColor(c, android.R.color.holo_orange_light))
-        color_list.add(ContextCompat.getColor(c, android.R.color.holo_blue_light))
+        color_list.add(ContextCompat.getColor(applicationContext, android.R.color.holo_green_light))
+        color_list.add(ContextCompat.getColor(applicationContext, android.R.color.holo_orange_light))
+        color_list.add(ContextCompat.getColor(applicationContext, android.R.color.holo_blue_light))
         dataSet.colors = color_list
 
-        dataSet.valueTextColor = ContextCompat.getColor(c, android.R.color.black)
+        dataSet.valueTextColor = ContextCompat.getColor(applicationContext, android.R.color.black)
 
         val lineData = BarData(dataSet)
-        graph.setFitBars(true)
-        graph.data = lineData
-        graph.invalidate()
+        graph_detail.setFitBars(true)
+        graph_detail.data = lineData
+        graph_detail.invalidate()
     }
 
 }
